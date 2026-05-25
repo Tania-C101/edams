@@ -5,92 +5,71 @@ const cors = require('cors');
 const http = require('http');
 const socketio = require('socket.io');
 
-// Environment variables
+const app = express();
+const server = http.createServer(app);
+
+// Environment
 const uri = process.env.MONGO_URI;
 const PORT = process.env.PORT || 5000;
-
-const app = express();
 
 // Middleware
 app.use((req, res, next) => {
   res.set('Cache-Control', 'no-store');
   next();
 });
-app.use(cors());
+
+app.use(cors({
+  origin: "*", // change later to your S3 URL
+  credentials: true
+}));
+
 app.use(express.json());
 
-// Resgiter/ mount all routes in here
-const authRoute = require('./routes/authRoute');
-app.use('/api/auth', authRoute);
+// Routes
+app.use('/api/auth', require('./routes/authRoute'));
+app.use('/api/employee', require('./routes/employeeRoutes'));
+app.use('/api/exit-interview', require('./routes/exitInterviewRoutes'));
+app.use('/api/password-recovery', require('./routes/passwordRecoveryRoutes'));
+app.use('/api/performance-review', require('./routes/performanceReviewRoutes'));
+app.use('/api/question-response', require('./routes/questionResponseRoutes'));
+app.use('/api/self-evaluation', require('./routes/selfEvaluationRoutes'));
+app.use('/api/survey-notification', require('./routes/surveyNotificationRoutes'));
+app.use('/api/survey-dashboard', require('./routes/surveyRoutes'));
+app.use('/api/performance-dashboard', require('./routes/performanceRoutes'));
+app.use('/api/survey-submission', require('./routes/surveySubmissionRoutes'));
+app.use('/api/user-account', require('./routes/userAccountRoutes'));
+app.use('/api/survey-analytics', require('./routes/surveyAnalyticsRoutes'));
+app.use('/api/performance-review-analytics', require('./routes/performanceReviewAnalyticsRoutes'));
+app.use('/api/exit-interview-analytics', require('./routes/exitInterviewAnalyticsRoutes'));
+app.use('/api/attrition', require('./routes/predictiveAttritionRoutes'));
 
-const employeeRoute = require('./routes/employeeRoutes');
-app.use('/api/employee', employeeRoute);
+// Socket setup (outside DB)
+const io = socketio(server, {
+  cors: {
+    origin: "*"
+  }
+});
 
-const exitInterviewRoute = require('./routes/exitInterviewRoutes');
-app.use('/api/exit-interview', exitInterviewRoute);
+// MongoDB
+mongoose.connect(uri)
+  .then(() => console.log("MongoDB connected"))
+  .catch(err => console.error(err));
 
-const passwordRecoveryRoute = require('./routes/passwordRecoveryRoutes');
-app.use('/api/password-recovery', passwordRecoveryRoute);
-
-const performanceReviewRoute = require('./routes/performanceReviewRoutes');
-app.use('/api/performance-review', performanceReviewRoute);
-
-const questionResponseRoute = require('./routes/questionResponseRoutes');
-app.use('/api/question-response', questionResponseRoute);
-
-const selfEvaluationRoute = require('./routes/selfEvaluationRoutes');
-app.use('/api/self-evaluation', selfEvaluationRoute);
-
-const surveyNotificationRoute = require('./routes/surveyNotificationRoutes');
-app.use('/api/survey-notification', surveyNotificationRoute);
-
-const surveyRoute = require('./routes/surveyRoutes');
-app.use('/api/survey-dashboard', surveyRoute);
-
-const performanceRoute = require('./routes/performanceRoutes');
-app.use('/api/performance-dashboard', performanceRoute);
-
-const surveySubmissionRoute = require('./routes/surveySubmissionRoutes');
-app.use('/api/survey-submission', surveySubmissionRoute);
-
-const userAccountRoute = require('./routes/userAccountRoutes');
-app.use('/api/user-account', userAccountRoute);
-
-const surveyAnalyticsRoute = require('./routes/surveyAnalyticsRoutes');
-app.use('/api/survey-analytics', surveyAnalyticsRoute);
-
-const performanceReviewAnalyticsRoute = require('./routes/performanceReviewAnalyticsRoutes');
-app.use('/api/performance-review-analytics', performanceReviewAnalyticsRoute);
-
-const exitInterviewAnalyticsRoute = require('./routes/exitInterviewAnalyticsRoutes');
-app.use('/api/exit-interview-analytics', exitInterviewAnalyticsRoute);
-
-const predictiveAttritionRoute = require("./routes/predictiveAttritionRoutes");
-app.use("/api/attrition", predictiveAttritionRoute);
-
-// MongoDB connection
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
-
-db.once('open', () => {
-  console.log('MongoDB connected successfully!');
-
+// Change stream (safe after connection)
+mongoose.connection.once('open', () => {
+  const db = mongoose.connection;
   const predictionCollection = db.collection('employee_attrition_predictions');
 
-  // Socket.io setup for real-time updates
-  const server = http.createServer(app);
-  const io = socketio(server, { cors: { origin: '*' } });
-
-  // Emit new prediction events
   const changeStream = predictionCollection.watch();
+
   changeStream.on('change', (change) => {
     if (change.operationType === 'insert' || change.operationType === 'update') {
       io.emit('new_prediction', change.fullDocument);
     }
   });
-
-  // Start server
-  server.listen(PORT, () => console.log(`Server + Socket.io running on port ${PORT}`));
 });
 
-db.on('error', (err) => console.error('MongoDB connection error:', err));
+// Start server ALWAYS
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
