@@ -1,0 +1,102 @@
+{
+  "set_1": {
+    "title": "Work Culture",
+    "questions": [
+      {
+        "id": "WC1",
+        "text": "I feel comfortable and valued in my workplace."
+      },
+      {
+        "id": "WC2",
+        "text": "My workplace promotes a positive and inclusive culture."
+      },
+      {
+        "id": "WC3",
+        "text": "I have the necessary tools and resources to perform my job effectively."
+      },
+      {
+        "id": "WC4",
+        "text": "My contributions to the company are recognized and appreciated."
+      },
+      {
+        "id": "WC5",
+        "text": "I feel safe and respected in my workplace."
+      }
+    ]
+  },
+  "set_2": {
+    "title": "Work-Life Balance & Compensation",
+    "questions": [
+      {
+        "id": "WLBC1",
+        "text": "I have a good work-life balance in my current role."
+      },
+      {
+        "id": "WLBC2",
+        "text": "I am satisfied with the compensation and benefits I receive."
+      },
+      {
+        "id": "WLBC3",
+        "text": "I have the necessary tools and resources to perform my job effectively."
+      },
+      {
+        "id": "WLBC4",
+        "text": "I receive sufficient paid time off and breaks to maintain my well-being."
+      },
+      {
+        "id": "WLBC",
+        "text": "My company supports flexibility in work arrangements (remote work, flexible hours, etc.)."
+      }
+    ]
+  },
+  "set_3": {
+    "title": "Growth & Career Development",
+    "questions": [
+      {
+        "id": "GCD1",
+        "text": "I have clear opportunities for career advancement."
+      },
+      {
+        "id": "GCD2",
+        "text": "My job allows me to develop new skills and knowledge."
+      },
+      {
+        "id": "GCD3",
+        "text": "My supervisor supports my professional growth."
+      },
+      {
+        "id": "GCD4",
+        "text": "I receive regular and constructive feedback on my performance."
+      },
+      {
+        "id": "GCD",
+        "text": "I feel motivated to stay with the company long-term."
+      }
+    ]
+  },
+  "set_4": {
+    "title": "Employee Well-being & Support",
+    "questions": [
+      {
+        "id": "EWS1",
+        "text": "My company cares about my overall well-being."
+      },
+      {
+        "id": "EWS2",
+        "text": "I have access to resources that support my physical and mental health."
+      },
+      {
+        "id": "EWS3",
+        "text": "The company provides a safe and supportive environment to manage stress."
+      },
+      {
+        "id": "EWS4",
+        "text": "I feel comfortable discussing personal or work-related challenges with my employer."
+      },
+      {
+        "id": "EWS5",
+        "text": "The company offers programs or initiatives that promote employee wellness."
+      }
+    ]
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "set_1": {
+    "title": "Leadership Communication & Support",
+    "questions": [
+      {
+        "id": "LCS1",
+        "text": "My leader effectively communicates important information to the team."
+      },
+      {
+        "id": "LCS2",
+        "text": "My leader is approachable and willing to listen to concerns."
+      },
+      {
+        "id": "LCS3",
+        "text": "I feel supported by my leader in achieving my goals."
+      },
+      {
+        "id": "LCS4",
+        "text": "He/She provides clear expectations for performance."
+      },
+      {
+        "id": "LCS5",
+        "text": "He/She encourages open and honest feedback."
+      }
+    ]
+  },
+  "set_2": {
+    "title": "Leadership Decision-Making & Problem-Solving",
+    "questions": [
+      {
+        "id": "LDMPS1",
+        "text": "My leader makes decisions based on the team's input and needs."
+      },
+      {
+        "id": "LDMPS2",
+        "text": "He/She  is decisive and takes action when necessary."
+      },
+      {
+        "id": "LDMPS3",
+        "text": "He/She addresses challenges in a timely and effective manner."
+      },
+      {
+        "id": "LDMPS4",
+        "text": "He/She fosters a solution-oriented approach within the team."
+      },
+      {
+        "id": "LDMPS5",
+        "text": "His/Her decisions align with the company's goals and values."
+      }
+    ]
+  },
+  "set_3": {
+    "title": "Leadership Development & Motivation",
+    "questions": [
+      {
+        "id": "LDM1",
+        "text": "My leader inspires and motivates me to do my best work."
+      },
+      {
+        "id": "LDM2",
+        "text": "He/She provides opportunities for personal and professional growth."
+      },
+      {
+        "id": "LDM3",
+        "text": "He/She recognizes and celebrates team achievements."
+      },
+      {
+        "id": "LDM4",
+        "text": "He/She empowers team members to take ownership of their work."
+      },
+      {
+        "id": "LDM5",
+        "text": "He/She encourages creativity and innovation within the team."
+      }
+    ]
+  },
+  "set_4": {
+    "title": "Leadership Integrity & Accountability",
+    "questions": [
+      {
+        "id": "LIA1",
+        "text": "My leader acts with honesty and integrity in all situations."
+      },
+      {
+        "id": "LIA2",
+        "text": "He/She takes responsibility for their decisions and actions."
+      },
+      {
+        "id": "LIA3",
+        "text": "He/She treats all team members fairly and without bias."
+      },
+      {
+        "id": "LIA4",
+        "text": "He/She follows through on commitments and promises."
+      },
+      {
+        "id": "LIA5",
+        "text": "I trust my leader to act in the best interest of the team."
+      }
+    ]
+  }
+}

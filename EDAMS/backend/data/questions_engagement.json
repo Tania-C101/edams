@@ -1,0 +1,104 @@
+{
+  "set_1": {
+    "title": "Workplace Culture & Environment",
+    "questions": [
+      {
+        "id": "WCE1",
+        "text": "I feel a strong sense of belonging within the company."
+      },
+      {
+        "id": "WCE2",
+        "text": "Communication between employees and leadership is open and transparent."
+      },
+      {
+        "id": "WCE3",
+        "text": "My team collaborates effectively to achieve shared goals."
+      },
+      {
+        "id": "WCE4",
+        "text": "I feel valued as an employee in this organization."
+      },
+      {
+        "id": "WCE5",
+        "text": "I would recommend this company as a great place to work."
+      }
+    ]
+  },
+
+  "set_2": {
+    "title": "Work Engagement",
+    "questions": [
+      {
+        "id": "WE1",
+        "text": "My work gives me a sense of purpose and accomplishment."
+      },
+      {
+        "id": "WE2",
+        "text": "I receive recognition for my contributions at work."
+      },
+      {
+        "id": "WE3",
+        "text": "I feel motivated to go above and beyond my regular job duties."
+      },
+      {
+        "id": "WE4",
+        "text": "My workload is manageable and allows me to perform at my best."
+      },
+      {
+        "id": "WE5",
+        "text": "I understand how my role contributes to the company's success."
+      }
+    ]
+  },
+
+  "set_3": {
+    "title": "Growth & Development",
+    "questions": [
+      {
+        "id": "GD1",
+        "text": "My manager encourages and supports my professional development."
+      },
+      {
+        "id": "GD2",
+        "text": "I have access to training and development opportunities to grow my career."
+      },
+      {
+        "id": "GD3",
+        "text": "I am given opportunities to contribute ideas and suggestions."
+      },
+      {
+        "id": "GD4",
+        "text": "I have the tools and resources needed to do my job effectively."
+      },
+      {
+        "id": "GD5",
+        "text": "I believe that company policies are fair and applied consistently."
+      }
+    ]
+  },
+  "set_4": {
+    "title": "Leadership & Management",
+    "questions": [
+      {
+        "id": "LM1",
+        "text": "My manager provides clear direction and expectations."
+      },
+      {
+        "id": "LM2",
+        "text": "Leadership demonstrates integrity and ethical behavior."
+      },
+      {
+        "id": "LM3",
+        "text": "I receive constructive feedback that helps me improve."
+      },
+      {
+        "id": "LM4",
+        "text": "Leaders make decisions that align with the company’s values."
+      },
+      {
+        "id": "LM5",
+        "text": "I feel confident in the leadership’s ability to guide the company toward success."
+      }
+    ]
+  }
+}
